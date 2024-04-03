@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class army : MonoBehaviour
 {
@@ -9,7 +6,8 @@ public class army : MonoBehaviour
     [SerializeField] float Speed = 1f;
     [SerializeField] float Hp = 10f;
     [SerializeField] float damage = 3f;
-
+    float timer;
+    int toweDamage;
     Rigidbody2D rigid;
     BoxCollider2D boxCollider2D;
     Animator anim;
@@ -40,11 +38,21 @@ public class army : MonoBehaviour
     }
     private void offense()
     {
+
+
+
         anim.SetBool("contact", Speed == 0);
+
     }
 
-    private void AttackEnemyTower()
+    public void Hit()
     {
-        
+        Hp--;
+            if( Hp < 0 )
+        {
+            Hp = 0;
+        }
     }
+
+
 }
