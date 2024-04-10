@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tool
-{
+public static class Tool
+{ 
     public static string GetGameTag(GameTag _value)
     {
-        return _value.ToString(); 
-    }
+        return _value.ToString();
 
+    }
+}
     public enum GameTag
     {
         None,
@@ -17,4 +18,4 @@ public class Tool
         EnemyTower
     }
 
-    }
+    

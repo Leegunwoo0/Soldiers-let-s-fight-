@@ -25,32 +25,45 @@ public class enemytower : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-     
-        
-    
+        if(collision .tag == Tool.GetGameTag(GameTag. ssoldier))
+        {
 
-       
+        }
+
+
+
+
     }
     void Start()
     {
-        soldier = GameObject.FindGameObjectWithTag("soldier");
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
-    public void Hit()
+    public void Hit(float _damage)
     {
-        if (soldier != null)
-        {
-            enemytowerHp--;
-        }
-   
+        enemytowerHp -= _damage;
 
+        if (enemytowerHp <= 0)
+        {
+            destroyFunctiom();
+        }
+    }
+
+    public void DestroyOnBodySlam()
+    {
+        destroyFunctiom();
+    }
+
+    private void destroyFunctiom()
+    {
+        Destroy(gameObject);
     }
 
 }
