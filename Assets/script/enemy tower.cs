@@ -16,8 +16,10 @@ public class enemytower : MonoBehaviour
     }
 
     [Header("enemytower 정보")]
-    [SerializeField] float enemytowerHp = 30f;
-    
+    [SerializeField] float enemytowerHp = 30f;// 타워hp
+    float timer;//시간
+    float damagetime = 0.1f;
+
 
 
     // Start is called before the first frame update
@@ -25,10 +27,7 @@ public class enemytower : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-       if(collision == Tool.GetGameTag(GameTag.soldier))
-        {
-
-        }
+       
 
 
 
@@ -46,9 +45,29 @@ public class enemytower : MonoBehaviour
 
     }
 
-   public void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
-        enemytowerHp = enemytowerHp - damage;
+
+
+        //enemytowerHp = enemytowerHp - damage;
+
+        //if (enemytowerHp < 0)
+        //{
+        //    enemytowerHp = 0;
+        //}
+
+
+
+        timer += Time.deltaTime;
+        if (timer > damagetime)
+        {
+            enemytowerHp = enemytowerHp - damage;
+
+            timer = 0.0f;
+        }
+
+
+
     }
 
     public void DestroyOnBodySlam()

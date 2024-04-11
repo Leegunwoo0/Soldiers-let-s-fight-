@@ -19,12 +19,18 @@ public class army : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Speed = 0;
-        if(collision.tag == Tool.GetGameTag(GameTag.EnemyTower ))
-        {
-            collision.GetComponent<enemytower>().TakeDamage(damage);
-            offense();
-        }
       
+        
+            if (collision.tag == Tool.GetGameTag(GameTag.EnemyTower))
+            {
+        
+                collision.GetComponent<enemytower>().TakeDamage(damage);
+            
+            }
+            offense();
+        
+
+        
     }
     void Start()
     {
@@ -35,6 +41,7 @@ public class army : MonoBehaviour
     void Update()
     {
         Move();
+
     }
     private void Move()
     {
