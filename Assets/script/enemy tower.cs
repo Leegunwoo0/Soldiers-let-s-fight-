@@ -17,7 +17,7 @@ public class enemytower : MonoBehaviour
 
     [Header("enemytower Á¤º¸")]
     [SerializeField] float enemytowerHp = 30f;
-    public GameObject soldier;
+    
 
 
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class enemytower : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision .tag == Tool.GetGameTag(GameTag. ssoldier))
+       if(collision == Tool.GetGameTag(GameTag.soldier))
         {
 
         }
@@ -46,14 +46,9 @@ public class enemytower : MonoBehaviour
 
     }
 
-    public void Hit(float _damage)
+   public void TakeDamage(float damage)
     {
-        enemytowerHp -= _damage;
-
-        if (enemytowerHp <= 0)
-        {
-            destroyFunctiom();
-        }
+        enemytowerHp = enemytowerHp - damage;
     }
 
     public void DestroyOnBodySlam()

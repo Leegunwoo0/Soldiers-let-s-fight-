@@ -19,7 +19,12 @@ public class army : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Speed = 0;
-        offense();
+        if(collision.tag == Tool.GetGameTag(GameTag.EnemyTower ))
+        {
+            collision.GetComponent<enemytower>().TakeDamage(damage);
+            offense();
+        }
+      
     }
     void Start()
     {
@@ -38,10 +43,8 @@ public class army : MonoBehaviour
     }
     private void offense()
     {
-
-
-
         anim.SetBool("contact", Speed == 0);
+     
 
     }
 
