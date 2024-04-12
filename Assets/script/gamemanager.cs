@@ -4,7 +4,24 @@ using UnityEngine;
 
 public class gamemanager : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+
+
+   
+
+    [Header("army¡§∫∏")]
+    [SerializeField] float Speed = 1f;
+    [SerializeField] float Hp = 10f;
+    [SerializeField] float damage = 3f;
+
+
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+
+    }
     void Start()
     {
         

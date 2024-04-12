@@ -16,9 +16,9 @@ public class enemytower : MonoBehaviour
     }
 
     [Header("enemytower 정보")]
-    [SerializeField] float enemytowerHp = 30f;// 타워hp
-    float timer;//시간
-    float damagetime = 0.1f;
+    [SerializeField] float enemytowerhp = 30f;// 타워hp
+
+  
 
 
 
@@ -49,26 +49,15 @@ public class enemytower : MonoBehaviour
     {
 
 
-        //enemytowerHp = enemytowerHp - damage;
+        enemytowerhp = enemytowerhp - damage;
 
-        //if (enemytowerHp < 0)
-        //{
-        //    enemytowerHp = 0;
-        //}
-
-
-
-        timer += Time.deltaTime;
-        if (timer > damagetime)
+        if (enemytowerhp <= 0)
         {
-            enemytowerHp = enemytowerHp - damage;
-
-            timer = 0.0f;
+            enemytowerhp = 0;
         }
-
-
-
     }
+
+
 
     public void DestroyOnBodySlam()
     {

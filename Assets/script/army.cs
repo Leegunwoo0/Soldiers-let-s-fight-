@@ -6,32 +6,28 @@ public class army : MonoBehaviour
     [SerializeField] float Speed = 1f;
     [SerializeField] float Hp = 10f;
     [SerializeField] float damage = 3f;
+
+    [SerializeField] float damagetime = 0.5f;
     float timer;
-    int toweDamage;
     Rigidbody2D rigid;
-    BoxCollider2D boxCollider2D;
+    Collider2D col;
     Animator anim;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D col)
     {
         Speed = 0;
-      
-        
-            if (collision.tag == Tool.GetGameTag(GameTag.EnemyTower))
-            {
-        
-                collision.GetComponent<enemytower>().TakeDamage(damage);
-            
-            }
-            offense();
-        
-
-        
+        if (col.tag == Tool.GetGameTag(GameTag.EnemyTower))
+        {
+            Ermytowercheck(col);
+        }
     }
+
+
     void Start()
     {
 
@@ -41,6 +37,7 @@ public class army : MonoBehaviour
     void Update()
     {
         Move();
+        Enemytowercheckattack();
 
     }
     private void Move()
@@ -51,18 +48,42 @@ public class army : MonoBehaviour
     private void offense()
     {
         anim.SetBool("contact", Speed == 0);
-     
 
     }
 
     public void Hit()
     {
         Hp--;
-            if( Hp < 0 )
+        if (Hp < 0)
         {
             Hp = 0;
         }
     }
 
+    public void Ermytowercheck(Collider2D col)
+    {
+        if (col.tag == Tool.GetGameTag(GameTag.EnemyTower))
+        {
+            Enemytowerattack(col);
+        }
+    }
+
+
+   private void  Enemytowercheckattack()
+    {
+        Enemytowerattack(col);
+    }
+    public void Enemytowerattack(Collider2D col)
+    {
+        timer += Time.deltaTime;
+        if (timer >= damagetime)
+        {
+            col.GetComponent<enemytower>().TakeDamage(damage);
+            timer = 0.0f;
+
+
+        }
+        offense();
+    }
 
 }

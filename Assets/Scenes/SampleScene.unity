@@ -4064,8 +4064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56c76bbf43156146b612a0eee81c7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemytowerHp: 50
-  soldier: {fileID: 0}
+  enemytowerhp: 30
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4299,8 +4298,8 @@ GameObject:
   - component: {fileID: 1100232504}
   - component: {fileID: 1100232503}
   m_Layer: 0
-  m_Name: archer_level_2
-  m_TagString: Untagged
+  m_Name: SmailMyTowerA
+  m_TagString: Mytower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4480,7 +4479,7 @@ GameObject:
   - component: {fileID: 1236717864}
   - component: {fileID: 1236717866}
   m_Layer: 0
-  m_Name: BigEnemyTower
+  m_Name: SmailEnemyTowerA
   m_TagString: EnemyTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4659,8 +4658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56c76bbf43156146b612a0eee81c7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemytowerHp: 70
-  soldier: {fileID: 5778147544310845807, guid: d38f38464837e524f93eaf2b6481ad49, type: 3}
+  enemytowerhp: 100
 --- !u!1 &1312133825
 GameObject:
   m_ObjectHideFlags: 0
@@ -4674,7 +4672,7 @@ GameObject:
   - component: {fileID: 1312133829}
   - component: {fileID: 1312133828}
   m_Layer: 0
-  m_Name: archer_level_2 (1)
+  m_Name: SmailMyTowerB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5029,8 +5027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56c76bbf43156146b612a0eee81c7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemytowerHp: 30
-  soldier: {fileID: 0}
+  enemytowerhp: 30
 --- !u!1 &1783662717
 GameObject:
   m_ObjectHideFlags: 0
@@ -5043,8 +5040,9 @@ GameObject:
   - component: {fileID: 1783662719}
   - component: {fileID: 1783662721}
   - component: {fileID: 1783662720}
+  - component: {fileID: 1783662722}
   m_Layer: 0
-  m_Name: archer_level_3
+  m_Name: BigMyTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5206,6 +5204,18 @@ PolygonCollider2D:
       - {x: 0.9357143, y: -0.8142857}
       - {x: 0.9357143, y: 0.82857144}
   m_UseDelaunayMesh: 0
+--- !u!114 &1783662722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783662717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20085d59a1db40042b7f5ade2512a8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1793789216
 GameObject:
   m_ObjectHideFlags: 0
@@ -5327,7 +5337,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 24600309837867062, guid: d38f38464837e524f93eaf2b6481ad49, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5279310617344719527, guid: d38f38464837e524f93eaf2b6481ad49, type: 3}
       propertyPath: m_GravityScale
@@ -5343,11 +5353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8931943554031499151, guid: d38f38464837e524f93eaf2b6481ad49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.91
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 8931943554031499151, guid: d38f38464837e524f93eaf2b6481ad49, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.28
+      value: -3.16
       objectReference: {fileID: 0}
     - target: {fileID: 8931943554031499151, guid: d38f38464837e524f93eaf2b6481ad49, type: 3}
       propertyPath: m_LocalPosition.z
