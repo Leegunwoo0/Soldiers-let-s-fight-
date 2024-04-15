@@ -9,22 +9,26 @@ public class army : MonoBehaviour
 
     [SerializeField] float damagetime = 0.5f;
     float timer;
-    Rigidbody2D rigid;
     Collider2D col;
+    bool checkEnemytower = false;
     Animator anim;
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
+
         anim = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D collider2D)
     {
-        Speed = 0;
-        if (col.tag == Tool.GetGameTag(GameTag.EnemyTower))
+
+        if (collider2D.tag == Tool.GetGameTag(GameTag.EnemyTower))
         {
-            Ermytowercheck(col);
+            col = collider2D;
+            Speed = 0;
+            checkEnemytower = true;
         }
+
+   
     }
 
 
@@ -37,7 +41,10 @@ public class army : MonoBehaviour
     void Update()
     {
         Move();
-        Enemytowercheckattack();
+        if (checkEnemytower == true)
+        {
+            Enemytowerattacktime();
+        }
 
     }
     private void Move()
@@ -60,30 +67,46 @@ public class army : MonoBehaviour
         }
     }
 
-    public void Ermytowercheck(Collider2D col)
+
+    public void EnemyTowerattack()
     {
-        if (col.tag == Tool.GetGameTag(GameTag.EnemyTower))
+
+        if (checkEnemytower == true)
         {
-            Enemytowerattack(col);
+            enemytower enemytowerSc = col.GetComponent<enemytower>();
+            enemytowerSc.TakeDamage(damage);
+         
         }
+
     }
 
 
-   private void  Enemytowercheckattack()
-    {
-        Enemytowerattack(col);
-    }
-    public void Enemytowerattack(Collider2D col)
+    public void Enemytowerattacktime()
     {
         timer += Time.deltaTime;
         if (timer >= damagetime)
         {
-            col.GetComponent<enemytower>().TakeDamage(damage);
-            timer = 0.0f;
+
+            if (checkEnemytower == true)
+            {
+                EnemyTowerattack();
+                timer = 0.0f;
+            }
+
 
 
         }
         offense();
+
+
+    }
+    
+  public void Collapse(float EtowerHp)
+    {
+        if (EtowerHp < 0)
+        {
+            checkEnemytower = false;
+        }
     }
 
 }

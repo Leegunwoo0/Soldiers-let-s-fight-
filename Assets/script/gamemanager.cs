@@ -9,10 +9,6 @@ public class gamemanager : MonoBehaviour
 
    
 
-    [Header("army¡§∫∏")]
-    [SerializeField] float Speed = 1f;
-    [SerializeField] float Hp = 10f;
-    [SerializeField] float damage = 3f;
 
 
 
