@@ -61,7 +61,7 @@ public class enemytower : MonoBehaviour
 
     public void Collapse()
     {
-
+        
     }
 
     public void DestroyOnBodySlam()

@@ -15,7 +15,10 @@ public static class Tool
         None,
         Player,
         soldier,
-        EnemyTower
+        EnemyTower,
+        monster,
+        Mytower
+
     }
 
     
